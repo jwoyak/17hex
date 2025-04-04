@@ -1,0 +1,99 @@
+[debug] [2025-04-04T06:04:10.349Z] ----------------------------------------------------------------------
+[debug] [2025-04-04T06:04:10.351Z] Command:       /usr/local/share/nvm/versions/node/v20.19.0/bin/node /home/codespace/nvm/current/bin/firebase login:ci
+[debug] [2025-04-04T06:04:10.351Z] CLI Version:   14.1.0
+[debug] [2025-04-04T06:04:10.351Z] Platform:      linux
+[debug] [2025-04-04T06:04:10.351Z] Node Version:  v20.19.0
+[debug] [2025-04-04T06:04:10.352Z] Time:          Fri Apr 04 2025 06:04:10 GMT+0000 (Coordinated Universal Time)
+[debug] [2025-04-04T06:04:10.352Z] Env Overrides: GITHUB_API_URL, GITHUB_API_URL
+[debug] [2025-04-04T06:04:10.352Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-04-04T06:04:10.354Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[warn] ⚠  Authenticating with a `login:ci` token is deprecated and will be removed in a future major version of `firebase-tools`. Instead, use a service account key with `GOOGLE_APPLICATION_CREDENTIALS`: https://cloud.google.com/docs/authentication/getting-started 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=886386088&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2025-04-04T06:04:10.729Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-04-04T06:04:10.730Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-04-04T06:04:51.204Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2025-04-04T06:04:51.205Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"ad5b1b7e-a487-4292-bab6-59ad9c41a66d"}
+[debug] [2025-04-04T06:04:51.435Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2025-04-04T06:04:51.435Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"XOuh-S03P_rhyHK85RhrtukAVLJs02WxM4zik3rRT0U"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    AD5B1
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=US-i2L2GtR8AXVw0aOegdChV0yt8Op9Eqyt-wBsHcVs&session=ad5b1b7e-a487-4292-bab6-59ad9c41a66d&attest=XOuh-S03P_rhyHK85RhrtukAVLJs02WxM4zik3rRT0U
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 
+[debug] [2025-04-04T06:05:04.550Z] ----------------------------------------------------------------------
+[debug] [2025-04-04T06:05:04.552Z] Command:       /usr/local/share/nvm/versions/node/v20.19.0/bin/node /home/codespace/nvm/current/bin/firebase login:ci
+[debug] [2025-04-04T06:05:04.552Z] CLI Version:   14.1.0
+[debug] [2025-04-04T06:05:04.552Z] Platform:      linux
+[debug] [2025-04-04T06:05:04.552Z] Node Version:  v20.19.0
+[debug] [2025-04-04T06:05:04.553Z] Time:          Fri Apr 04 2025 06:05:04 GMT+0000 (Coordinated Universal Time)
+[debug] [2025-04-04T06:05:04.553Z] Env Overrides: GITHUB_API_URL, GITHUB_API_URL
+[debug] [2025-04-04T06:05:04.553Z] ----------------------------------------------------------------------
+[debug] 
+[warn] ⚠  Authenticating with a `login:ci` token is deprecated and will be removed in a future major version of `firebase-tools`. Instead, use a service account key with `GOOGLE_APPLICATION_CREDENTIALS`: https://cloud.google.com/docs/authentication/getting-started 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=878071804&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2025-04-04T06:05:23.147Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2025-04-04T06:05:23.147Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"0d28acdc-6c19-41b3-a0fe-6ba63f496f56"}
+[debug] [2025-04-04T06:05:23.375Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2025-04-04T06:05:23.375Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"KOLdqNDjWPx1MTBZWBCusyrsqHP1K9bygWzaKkD7H3k"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    0D28A
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=Wt020mDCoZHeXcJ-QLclkj00L4ijLj7Pv44fPXOnxpQ&session=0d28acdc-6c19-41b3-a0fe-6ba63f496f56&attest=KOLdqNDjWPx1MTBZWBCusyrsqHP1K9bygWzaKkD7H3k
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 
+[debug] [2025-04-04T06:05:46.616Z] ----------------------------------------------------------------------
+[debug] [2025-04-04T06:05:46.618Z] Command:       /usr/local/share/nvm/versions/node/v20.19.0/bin/node /home/codespace/nvm/current/bin/firebase login:ci
+[debug] [2025-04-04T06:05:46.618Z] CLI Version:   14.1.0
+[debug] [2025-04-04T06:05:46.618Z] Platform:      linux
+[debug] [2025-04-04T06:05:46.618Z] Node Version:  v20.19.0
+[debug] [2025-04-04T06:05:46.619Z] Time:          Fri Apr 04 2025 06:05:46 GMT+0000 (Coordinated Universal Time)
+[debug] [2025-04-04T06:05:46.619Z] Env Overrides: GITHUB_API_URL, GITHUB_API_URL
+[debug] [2025-04-04T06:05:46.619Z] ----------------------------------------------------------------------
+[debug] 
+[warn] ⚠  Authenticating with a `login:ci` token is deprecated and will be removed in a future major version of `firebase-tools`. Instead, use a service account key with `GOOGLE_APPLICATION_CREDENTIALS`: https://cloud.google.com/docs/authentication/getting-started 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=37084208&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2025-04-04T06:05:54.078Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2025-04-04T06:05:54.078Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"88113e7a-9349-49f8-bba2-2f2cb22df3bd"}
+[debug] [2025-04-04T06:05:54.315Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2025-04-04T06:05:54.316Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"jS22hTmTA1YDc6OT6vqK_UxHE4qXOoYCkQsdNMazJpw"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    88113
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=WzYEVg1_OEHkxzvAWmP6heilNFnsNcpo7UGWI68Rez8&session=88113e7a-9349-49f8-bba2-2f2cb22df3bd&attest=jS22hTmTA1YDc6OT6vqK_UxHE4qXOoYCkQsdNMazJpw
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 
