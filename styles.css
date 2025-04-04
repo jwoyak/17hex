@@ -119,7 +119,7 @@ nav ul li a:hover::after {
 
 .circle-bg {
     position: absolute;
-    left: -20%;
+    left: -23%;
     top: 50%;
     transform: translateY(-50%);
     width: 60%;
