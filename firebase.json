@@ -9,6 +9,10 @@
     ],
     "rewrites": [
       {
+        "source": "/sigil",
+        "destination": "/sigil/index.html"
+      },
+      {
         "source": "/sigil/**",
         "destination": "/sigil/index.html"
       },
