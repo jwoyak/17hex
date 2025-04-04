@@ -132,7 +132,7 @@ nav ul li a:hover::after {
 
 .circle-image {
     position: absolute;
-    left: -23%;
+    left: -33%;
     top: 50%;
     transform: translateY(-50%);
     width: 60vw;
@@ -140,7 +140,7 @@ nav ul li a:hover::after {
     background-image: url('images/circle-image.png'); /* Updated path */
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: center;
     z-index: 1;
 }
 
