@@ -132,7 +132,7 @@ nav ul li a:hover::after {
 
 .circle-image {
     position: absolute;
-    left: -26%;
+    left: -27%;
     top: 50%;
     transform: translateY(-50%);
     width: 60vw;
