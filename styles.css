@@ -140,7 +140,7 @@ nav ul li a:hover::after {
     background-image: url('images/circle-image.png'); /* Updated path */
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: left;
     z-index: 1;
 }
 
