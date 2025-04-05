@@ -1,0 +1,99 @@
+#appPage {
+    width: "100%";
+  }
+  
+  #sigilApp {
+    width: 414px;
+    margin: 2px;
+    padding: 6px;
+    padding-right: 2px;
+    color: #FFF;
+    background-color: #939393;
+  }
+  
+  #appHeading {
+    margin: 10px;
+  }
+  
+  #userIntent {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    width: 394px;
+  }
+  
+  #userPrefs {
+    height: 120px;
+    width: 394px;
+    margin: 4px;
+    margin-bottom: 10px;
+    padding: 4px;
+    line-height: 175%;
+    background-color: #777;
+  }
+  
+  #prefsLeft {
+    float: left;
+    margin-right: 12px;
+  }
+  
+  #prefsRight {
+    float: left;
+  }
+  
+  #sigilColor {
+    width: 50px;
+  }
+  
+  #sigilBgColor {
+    width: 50px;
+  }
+  
+  #sigilButtonArea {
+    width: 100%;
+    float: left;
+  }
+  
+  #sigilButtons {
+    width: 140px;
+    margin: 0px auto;
+    margin-bottom: 10px;
+  }
+  
+  #canvas {
+     border:1px solid #d3d3d3;
+     background-color: #FFF;
+  }
+  
+  #canvasArea  {
+    margin: 4px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    padding: 0px;
+  }
+  
+  #sigilFooter {
+    margin: 4px;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  
+  /*
+       FILE ARCHIVED ON 22:08:05 Jan 13, 2022 AND RETRIEVED FROM THE
+       INTERNET ARCHIVE ON 23:59:03 Apr 04, 2025.
+       JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+  
+       ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+       SECTION 108(a)(3)).
+  */
+  /*
+  playback timings (ms):
+    captures_list: 0.553
+    exclusion.robots: 0.025
+    exclusion.robots.policy: 0.016
+    esindex: 0.011
+    cdx.remote: 21.775
+    LoadShardBlock: 86.74 (3)
+    PetaboxLoader3.datanode: 63.371 (4)
+    PetaboxLoader3.resolve: 92.424 (2)
+    load_resource: 78.405
+  */ 
