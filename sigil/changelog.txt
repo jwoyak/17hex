@@ -1,0 +1,39 @@
+SIGIL CREATOR by 17hex (web: http://17hex.com <> email: 17hex@protonmail.com)
+-------------------------------------------------------------------------
+
+ChangeLog
+---------
+[Version 2.1]
+The old 17hex.com site was lost, but after hearing from people that they
+actually liked and used the sigil creator, I put in the work and was able
+to mostly restore it! 
+
+I was also able to restore the code for the v1 sigil
+creator (written in PHP), but this site doesn't run PHP, so at least for now
+it will stay offline.
+
+Thanks so much to those of you who reached out to me asking me about the sigil
+creator. It really means a lot that this project was useful to people!
+
+[Version 2.0]
+The sigil generator has been completeley rewritten for version 2.0!
+Whereas before it was a server side application written in PHP and GD,
+now it is a lean webapp written in pure HTML 5 canvas, CSS, and Javascript.
+This means the app is faster, has more features, and (most importantly)
+can now be used OFFLINE since all of the work is being done in your
+web browser instead of on the server.
+
+Features of version 2.0 are:
+----------------------------
+- javascript and HTML5 canvas is very lightweight and small
+- WAY MORE FONTS (twice as many!) now with preview right in the chooser!
+- Set the letter case (upper/lower/typed) for interesting combinations
+- Set the font size with a slider (some fonts work better large/small/etc)
+- Set the rotation amount (positive or negative) with a slider.
+- Set colors now with slick color chooser!
+- Ability to disable showing the sigilized letter set
+
+Still to come:
+--------------
+- Ability to download an archive of the app to use offline on your device
+- Maybe even an Android app. Really. I'm still working on this (again) :)
