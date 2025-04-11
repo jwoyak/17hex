@@ -115,10 +115,12 @@ nav ul li a:hover::after {
 }
 
 .full-width-header img {
-    width: 100%;
+    width: 100vw; /* Use viewport width unit to ensure full width */
+    height: 300px; /* Set a fixed reasonable height */
     display: block;
     object-fit: cover; /* This makes sure the image covers the container */
-    max-height: 500px; /* Adjust this to control the height */
+    margin-left: calc(-50vw + 50%); /* This trick ensures the image spans the full width */
+    margin-right: calc(-50vw + 50%);
 }
 
 /* Adjust hero section to account for the header image */
@@ -396,7 +398,7 @@ footer {
     }
     
     .full-width-header img {
-        max-height: 300px; /* Make header image smaller on mobile */
+        height: 200px; /* Make header image smaller on mobile */
     }
     
     .hero-content {
