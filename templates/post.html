@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ root_path }}/assets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>{{ title }}</h1>
+        <a href="{{ root_path }}/">Back to Blog</a>
+    </header>
+    <main>
+        <article class="post">
+            <time datetime="{{ date }}">{{ date }}</time>
+            <div class="post-content">
+                {{ content|safe }}
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; {{ current_year }} Your Name</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,5 @@
+notion-client==1.0.0
+python-dotenv==0.19.2
+jinja2==3.0.3
+markdown==3.3.6
+requests==2.27.1
