@@ -4,34 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>17hex - Blog</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Additional blog-specific styles -->
+    <style>
+        .blog-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .post-item {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .post-title {
+            margin-bottom: 10px;
+        }
+        
+        .post-date {
+            display: block;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        .read-more {
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="/" class="back-link">← Back to 17hex.com</a>
-            <h1>17hex Blog</h1>
-        </header>
-        
-        <main>
+    <header>
+        <div class="container">
+            <div class="logo">17hex</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#music">Music</a></li>
+                    <li><a href="/#tech">Tech</a></li>
+                    <li><a href="/#story">Story</a></li>
+                    <li><a href="/sigil">Sigil</a></li>
+                    <li><a href="/blog" class="active">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="section-dark">
+        <div class="blog-container">
+            <h2>Blog</h2>
+            
             <div class="post-list">
                 
                 <article class="post-item">
-                    <h2 class="post-title">
+                    <h3 class="post-title">
                         <a href="/blog/posts/17hex-is-back.html">17hex.com</a>
-                    </h2>
+                    </h3>
                     <time class="post-date" datetime="2025-04-06">2025-04-06</time>
                     
                     <a href="/blog/posts/17hex-is-back.html" class="read-more">Read more →</a>
                 </article>
                 
             </div>
-        </main>
-        
-        <footer>
-            <p>© 2025 17hex. All rights reserved.</p>
-        </footer>
+        </div>
     </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">17hex</div>
+                <div class="footer-links">
+                    <a href="/#music">Music</a>
+                    <a href="/#tech">Tech</a>
+                    <a href="/#story">Story</a>
+                    <a href="/sigil">Sigil</a>
+                    <a href="/blog">Blog</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://soundcloud.com/yourusername" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+                    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">Twitter</a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 17hex. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
