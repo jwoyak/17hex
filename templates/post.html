@@ -4,26 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - 17hex Blog</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Additional blog-specific styles -->
+    <style>
+        .blog-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .post-content h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: var(--accent-blue);
+            text-align: left;
+            left: 0;
+            transform: none;
+        }
+        
+        .post-content h2::after {
+            display: none;
+        }
+        
+        .post-content h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .post-content p {
+            margin-bottom: 20px;
+        }
+        
+        .post-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .post-content blockquote {
+            border-left: 4px solid var(--accent-blue);
+            padding: 10px 20px;
+            margin: 20px 0;
+            background-color: var(--dark-surface);
+        }
+        
+        .post-content pre {
+            background-color: var(--dark-surface);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .post-title {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .post-date {
+            display: block;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="../" class="back-link">← Back to Blog</a>
-            <h1>{{ title }}</h1>
-            <time datetime="{{ date }}">{{ date }}</time>
-        </header>
-        
-        <main>
+    <header>
+        <div class="container">
+            <div class="logo">17hex</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#music">Music</a></li>
+                    <li><a href="/#tech">Tech</a></li>
+                    <li><a href="/#story">Story</a></li>
+                    <li><a href="/sigil">Sigil</a></li>
+                    <li><a href="/blog" class="active">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="section-dark">
+        <div class="blog-container">
+            <h2 class="post-title">{{ title }}</h2>
+            <time class="post-date" datetime="{{ date }}">{{ date }}</time>
+            
             <article class="post-content">
                 {{ content|safe }}
             </article>
-        </main>
-        
-        <footer>
-            <p>© 2025 17hex. All rights reserved.</p>
-        </footer>
+            
+            <div style="margin-top: 60px;">
+                <a href="/blog" class="btn">← Back to Blog</a>
+            </div>
+        </div>
     </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">17hex</div>
+                <div class="footer-links">
+                    <a href="/#music">Music</a>
+                    <a href="/#tech">Tech</a>
+                    <a href="/#story">Story</a>
+                    <a href="/sigil">Sigil</a>
+                    <a href="/blog">Blog</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://soundcloud.com/yourusername" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+                    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">Twitter</a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 17hex. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
