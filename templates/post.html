@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ root_path }}/assets/styles.css">
+    <title>{{ title }} - 17hex Blog</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>{{ title }}</h1>
-        <a href="{{ root_path }}/">Back to Blog</a>
-    </header>
-    <main>
-        <article class="post">
+    <div class="container">
+        <header>
+            <a href="../" class="back-link">← Back to Blog</a>
+            <h1>{{ title }}</h1>
             <time datetime="{{ date }}">{{ date }}</time>
-            <div class="post-content">
+        </header>
+        
+        <main>
+            <article class="post-content">
                 {{ content|safe }}
-            </div>
-        </article>
-    </main>
-    <footer>
-        <p>&copy; {{ current_year }} Your Name</p>
-    </footer>
+            </article>
+        </main>
+        
+        <footer>
+            <p>© 2025 17hex. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>

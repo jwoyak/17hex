@@ -57,7 +57,7 @@ def process_notion_blocks(block_id):
         block_id=block_id
     )
     
-    # Process blocks into HTML (simplified)
+    # Process blocks into HTML
     html_content = ""
     
     # Handle different response formats
@@ -71,11 +71,87 @@ def process_notion_blocks(block_id):
         return html_content
     
     for block in block_list:
-        block_type = block["type"]
-        if block_type == "paragraph":
-            text = "".join([text["plain_text"] for text in block["paragraph"]["rich_text"]])
-            html_content += f"<p>{text}</p>\n"
-        # Add other block types as needed
+        try:
+            block_type = block["type"]
+            
+            if block_type == "paragraph":
+                rich_text = block["paragraph"]["rich_text"]
+                if rich_text:
+                    text = "".join([text["plain_text"] for text in rich_text])
+                    html_content += f"<p>{text}</p>\n"
+                else:
+                    html_content += "<p></p>\n"
+                    
+            elif block_type == "heading_1":
+                text = "".join([text["plain_text"] for text in block["heading_1"]["rich_text"]])
+                html_content += f"<h2>{text}</h2>\n"
+                
+            elif block_type == "heading_2":
+                text = "".join([text["plain_text"] for text in block["heading_2"]["rich_text"]])
+                html_content += f"<h3>{text}</h3>\n"
+                
+            elif block_type == "heading_3":
+                text = "".join([text["plain_text"] for text in block["heading_3"]["rich_text"]])
+                html_content += f"<h4>{text}</h4>\n"
+                
+            elif block_type == "bulleted_list_item":
+                text = "".join([text["plain_text"] for text in block["bulleted_list_item"]["rich_text"]])
+                html_content += f"<ul><li>{text}</li></ul>\n"
+                
+            elif block_type == "numbered_list_item":
+                text = "".join([text["plain_text"] for text in block["numbered_list_item"]["rich_text"]])
+                html_content += f"<ol><li>{text}</li></ol>\n"
+                
+            elif block_type == "to_do":
+                checked = block["to_do"]["checked"]
+                text = "".join([text["plain_text"] for text in block["to_do"]["rich_text"]])
+                checkbox = "✓" if checked else "☐"
+                html_content += f"<div class='todo-item'><span class='checkbox'>{checkbox}</span> {text}</div>\n"
+                
+            elif block_type == "toggle":
+                summary = "".join([text["plain_text"] for text in block["toggle"]["rich_text"]])
+                html_content += f"<details><summary>{summary}</summary><div>"
+                if block.get("has_children", False):
+                    html_content += process_notion_blocks(block["id"])
+                html_content += "</div></details>\n"
+                
+            elif block_type == "code":
+                code = "".join([text["plain_text"] for text in block["code"]["rich_text"]])
+                language = block["code"].get("language", "")
+                html_content += f"<pre><code class='language-{language}'>{code}</code></pre>\n"
+                
+            elif block_type == "quote":
+                text = "".join([text["plain_text"] for text in block["quote"]["rich_text"]])
+                html_content += f"<blockquote>{text}</blockquote>\n"
+                
+            elif block_type == "divider":
+                html_content += "<hr>\n"
+                
+            elif block_type == "image":
+                caption = ""
+                if "caption" in block["image"] and block["image"]["caption"]:
+                    caption = "".join([text["plain_text"] for text in block["image"]["caption"]])
+                
+                if "external" in block["image"] and block["image"]["external"]:
+                    image_url = block["image"]["external"]["url"]
+                    html_content += f"<figure><img src='{image_url}' alt='{caption}'>"
+                    if caption:
+                        html_content += f"<figcaption>{caption}</figcaption>"
+                    html_content += "</figure>\n"
+                elif "file" in block["image"] and block["image"]["file"]:
+                    image_url = block["image"]["file"]["url"]
+                    html_content += f"<figure><img src='{image_url}' alt='{caption}'>"
+                    if caption:
+                        html_content += f"<figcaption>{caption}</figcaption>"
+                    html_content += "</figure>\n"
+            
+            # Handle other block types as needed
+            else:
+                print(f"Unhandled block type: {block_type}")
+                
+        except Exception as e:
+            print(f"Error processing block: {e}")
+            continue
         
     return html_content
 

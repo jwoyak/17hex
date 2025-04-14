@@ -1,0 +1,144 @@
+/* Blog Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 30px 0 20px;
+    color: #34495e;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 25px 0 15px;
+    color: #3498db;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+time {
+    display: block;
+    margin: 10px 0 30px;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+blockquote {
+    border-left: 4px solid #3498db;
+    padding: 10px 20px;
+    margin: 20px 0;
+    background-color: #f0f8ff;
+}
+
+code {
+    font-family: monospace;
+    background-color: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+pre {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+ul, ol {
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+footer {
+    margin-top: 60px;
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 14px;
+    padding-top: 20px;
+    border-top: 1px solid #ecf0f1;
+}
+
+/* Blog Index Specific */
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-item {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.post-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.post-date {
+    display: block;
+    margin-bottom: 15px;
+    color: #7f8c8d;
+}
+
+.post-description {
+    margin-bottom: 20px;
+}
+
+.read-more {
+    font-weight: 500;
+}
