@@ -15,9 +15,8 @@ notion = Client(auth=os.environ["NOTION_TOKEN"])
 database_id = os.environ["NOTION_DATABASE_ID"]
 
 # Create output directories
-output_dir = Path("public")
-output_dir.mkdir(exist_ok=True)
-blog_dir = output_dir / "blog"
+# Create output directories
+blog_dir = Path("blog")
 blog_dir.mkdir(exist_ok=True)
 posts_dir = blog_dir / "posts"
 posts_dir.mkdir(exist_ok=True)
