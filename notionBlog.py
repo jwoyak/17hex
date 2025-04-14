@@ -195,13 +195,13 @@ def generate_static_site():
                 root_path="/blog"
             ))
         
-        # Add to summaries for index page
+        # Add to summaries for index page with full content
         post_summaries.append({
             "title": title,
             "slug": slug,
             "date": published_date,
             "url": f"/blog/posts/{slug}.html",
-            # You could add a summary/excerpt here too
+            "content": content_html  # Include the full content
         })
     
     # Generate index page with all posts
@@ -210,10 +210,6 @@ def generate_static_site():
             posts=post_summaries,
             root_path="/blog"
         ))
-    
-    # Copy static assets (CSS, JavaScript, etc.)
-    # Example:
-    # shutil.copy("templates/styles.css", assets_dir / "styles.css")
     
     print(f"Generated {len(posts)} blog posts in /blog directory")
 

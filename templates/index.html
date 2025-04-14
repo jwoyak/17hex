@@ -17,8 +17,8 @@
         }
         
         .post-item {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
             border-bottom: 1px solid var(--medium-gray);
         }
         
@@ -28,13 +28,61 @@
         
         .post-date {
             display: block;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             color: var(--text-secondary);
             font-style: italic;
         }
         
-        .read-more {
+        .permalink {
+            display: inline-block;
+            margin-top: 20px;
             font-weight: 500;
+        }
+        
+        /* Styles for post content */
+        .post-content h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: var(--accent-blue);
+            text-align: left;
+            left: 0;
+            transform: none;
+        }
+        
+        .post-content h2::after {
+            display: none;
+        }
+        
+        .post-content h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .post-content p {
+            margin-bottom: 20px;
+        }
+        
+        .post-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .post-content blockquote {
+            border-left: 4px solid var(--accent-blue);
+            padding: 10px 20px;
+            margin: 20px 0;
+            background-color: var(--dark-surface);
+        }
+        
+        .post-content pre {
+            background-color: var(--dark-surface);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -66,10 +114,13 @@
                         <a href="{{ post.url }}">{{ post.title }}</a>
                     </h3>
                     <time class="post-date" datetime="{{ post.date }}">{{ post.date }}</time>
-                    {% if post.description %}
-                    <p class="post-description">{{ post.description }}</p>
-                    {% endif %}
-                    <a href="{{ post.url }}" class="read-more">Read more →</a>
+                    
+                    <!-- Full post content -->
+                    <div class="post-content">
+                        {{ post.content|safe }}
+                    </div>
+                    
+                    <a href="{{ post.url }}" class="permalink">Permalink →</a>
                 </article>
                 {% endfor %}
             </div>
@@ -88,7 +139,7 @@
                     <a href="/blog">Blog</a>
                 </div>
                 <div class="social-links">
-                    <a href="https://soundcloud.com/17hex" target="_blank" rel="noopener noreferrer">17hex on SoundCloud</a>
+                    <a href="https://soundcloud.com/17hex" target="_blank" rel="noopener noreferrer">SoundCloud</a>
                 </div>
             </div>
             <p class="copyright">&copy; 2025 17hex. All rights reserved.</p>
