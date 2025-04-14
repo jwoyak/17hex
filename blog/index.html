@@ -17,8 +17,8 @@
         }
         
         .post-item {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
             border-bottom: 1px solid var(--medium-gray);
         }
         
@@ -28,13 +28,61 @@
         
         .post-date {
             display: block;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             color: var(--text-secondary);
             font-style: italic;
         }
         
-        .read-more {
+        .permalink {
+            display: inline-block;
+            margin-top: 20px;
             font-weight: 500;
+        }
+        
+        /* Styles for post content */
+        .post-content h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: var(--accent-blue);
+            text-align: left;
+            left: 0;
+            transform: none;
+        }
+        
+        .post-content h2::after {
+            display: none;
+        }
+        
+        .post-content h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .post-content p {
+            margin-bottom: 20px;
+        }
+        
+        .post-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .post-content blockquote {
+            border-left: 4px solid var(--accent-blue);
+            padding: 10px 20px;
+            margin: 20px 0;
+            background-color: var(--dark-surface);
+        }
+        
+        .post-content pre {
+            background-color: var(--dark-surface);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -63,11 +111,18 @@
                 
                 <article class="post-item">
                     <h3 class="post-title">
-                        <a href="/blog/posts/17hex-is-back.html">17hex.com</a>
+                        <a href="/blog/posts/17hex-is-back.html">17hex</a>
                     </h3>
                     <time class="post-date" datetime="2025-04-06">2025-04-06</time>
                     
-                    <a href="/blog/posts/17hex-is-back.html" class="read-more">Read more →</a>
+                    <!-- Full post content -->
+                    <div class="post-content">
+                        <p>After losing access to my web host and all the code a few year ago, I’ve managed to recover much of it. Now the site is hosted on Firebase, and the blog is hosted in Notion (though this may change, depending on the cost). Hopefully this lasts longer and fares better than the previous iteration! </p>
+<p>I also was finally able to put together a LOT of the music I’ve released online over the years, and even write up some of the history of it. Hopefully it’s at least interesting to someone. 🤷🏻‍♂️</p>
+
+                    </div>
+                    
+                    <a href="/blog/posts/17hex-is-back.html" class="permalink">Permalink →</a>
                 </article>
                 
             </div>
@@ -86,9 +141,7 @@
                     <a href="/blog">Blog</a>
                 </div>
                 <div class="social-links">
-                    <a href="https://soundcloud.com/yourusername" target="_blank" rel="noopener noreferrer">SoundCloud</a>
-                    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">Twitter</a>
+                    <a href="https://soundcloud.com/17hex" target="_blank" rel="noopener noreferrer">SoundCloud</a>
                 </div>
             </div>
             <p class="copyright">&copy; 2025 17hex. All rights reserved.</p>
