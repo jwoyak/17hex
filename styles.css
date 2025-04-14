@@ -347,6 +347,7 @@ footer {
 .footer-logo {
     font-size: 24px;
     font-weight: 700;
+    font-family: 'FirstV2', sans-serif;
     color: var(--accent-blue);
 }
 
