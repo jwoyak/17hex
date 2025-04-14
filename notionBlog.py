@@ -39,7 +39,17 @@ def get_blog_posts():
         database_id=database_id,
         sorts=[{"property": "Published", "direction": "descending"}]
     )
-    return posts["results"]
+    
+    # If posts is already a list, return it directly
+    if isinstance(posts, list):
+        return posts
+    # If posts is a dictionary with a "results" key, return posts["results"]
+    elif isinstance(posts, dict) and "results" in posts:
+        return posts["results"]
+    # Otherwise, return an empty list
+    else:
+        print("Warning: Unexpected response format from Notion API")
+        return []
 
 def process_notion_blocks(block_id):
     """Process Notion blocks and convert to HTML content"""
@@ -50,42 +60,23 @@ def process_notion_blocks(block_id):
     
     # Process blocks into HTML (simplified)
     html_content = ""
-    for block in blocks["results"]:
+    
+    # Handle different response formats
+    block_list = []
+    if isinstance(blocks, list):
+        block_list = blocks
+    elif isinstance(blocks, dict) and "results" in blocks:
+        block_list = blocks["results"]
+    else:
+        print(f"Warning: Unexpected block format for block_id: {block_id}")
+        return html_content
+    
+    for block in block_list:
         block_type = block["type"]
         if block_type == "paragraph":
             text = "".join([text["plain_text"] for text in block["paragraph"]["rich_text"]])
             html_content += f"<p>{text}</p>\n"
-        elif block_type == "heading_1":
-            text = "".join([text["plain_text"] for text in block["heading_1"]["rich_text"]])
-            html_content += f"<h1>{text}</h1>\n"
-        elif block_type == "heading_2":
-            text = "".join([text["plain_text"] for text in block["heading_2"]["rich_text"]])
-            html_content += f"<h2>{text}</h2>\n"
-        elif block_type == "heading_3":
-            text = "".join([text["plain_text"] for text in block["heading_3"]["rich_text"]])
-            html_content += f"<h3>{text}</h3>\n"
-        elif block_type == "bulleted_list_item":
-            text = "".join([text["plain_text"] for text in block["bulleted_list_item"]["rich_text"]])
-            html_content += f"<li>{text}</li>\n"
-        elif block_type == "numbered_list_item":
-            text = "".join([text["plain_text"] for text in block["numbered_list_item"]["rich_text"]])
-            html_content += f"<li>{text}</li>\n"
-        elif block_type == "image":
-            if "external" in block["image"]:
-                image_url = block["image"]["external"]["url"]
-            else:
-                image_url = block["image"]["file"]["url"]
-            
-            # Download the image
-            image_filename = f"image_{block['id'].replace('-', '')}.jpg"
-            image_path = images_dir / image_filename
-            download_image(image_url, image_path)
-            
-            # Add to HTML
-            alt_text = "".join([text["plain_text"] for text in block["image"].get("caption", [])])
-            html_content += f'<img src="/blog/assets/images/{image_filename}" alt="{alt_text}" class="blog-image">\n'
-        
-        # You would add more block types as needed
+        # Add other block types as needed
         
     return html_content
 
