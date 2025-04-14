@@ -1,3 +1,11 @@
+/* Custom Font */
+@font-face {
+    font-family: 'FirstV2';
+    src: url('sigil/fonts/firstv2-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Base Styles */
 :root {
     --dark-blue: #2c3e50;
@@ -106,54 +114,61 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
-/* Full-width header image */
-.full-width-header {
-    width: 100%;
-    overflow: hidden;
+/* Header image with overlay text */
+.header-image-container {
     position: relative;
-    line-height: 0; /* Removes any spacing below the image */
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    line-height: 0;
 }
 
-.full-width-header img {
-    width: 100vw; /* Use viewport width unit to ensure full width */
-    height: 300px; /* Set a fixed reasonable height */
+.header-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
-    object-fit: cover; /* This makes sure the image covers the container */
-    margin-left: calc(-50vw + 50%); /* This trick ensures the image spans the full width */
-    margin-right: calc(-50vw + 50%);
 }
 
-/* Adjust hero section to account for the header image */
-.hero {
-    height: auto; /* Change from 90vh to auto to be more responsive */
-    min-height: 70vh; /* Still maintain good height on larger screens */
-    padding-top: 60px; /* Add some space at the top */
-}
-
-/* Since we're removing the circle image, adjust the hero content positioning */
-.hero-content {
-    margin-left: 0; /* Reset the margin */
-    margin: 0 auto; /* Center the content */
-    text-align: center; /* Center-align the text */
-    max-width: 800px; /* Control the maximum width */
-    padding: 60px 20px; /* Add padding all around */
-}
-
-/* Adjust hero buttons to look better centered */
-.hero-buttons {
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
-    gap: 20px; /* Add some space between buttons */
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
 }
 
-.hero-buttons .btn {
-    margin: 0 5px;
+.site-title {
+    font-family: 'FirstV2', sans-serif;
+    font-size: 80px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    padding: 0;
 }
 
-.hero h1 {
-    font-size: 64px;
-    margin-bottom: 20px;
-    color: var(--off-white);
+/* Hero Section */
+.hero {
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    padding-top: 60px;
+    padding-bottom: 100px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
 .hero .tagline {
@@ -167,6 +182,14 @@ nav ul li a:hover::after {
     margin-bottom: 30px;
     max-width: 600px;
     color: var(--text-secondary);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .btn {
@@ -358,10 +381,6 @@ footer {
 
 /* Responsive */
 @media (max-width: 992px) {
-    .hero h1 {
-        font-size: 48px;
-    }
-    
     .hero .tagline {
         font-size: 20px;
     }
@@ -374,14 +393,6 @@ footer {
     .content-grid.reversed {
         direction: ltr;
     }
-    
-    .hero-content {
-        margin-left: 0; /* This is already set in our new styles */
-    }
-    
-    .circle-bg {
-        display: none; /* Already handled above */
-    }
 }
 
 @media (max-width: 768px) {
@@ -393,18 +404,22 @@ footer {
         display: none; /* For simplicity; in a real project, add a hamburger menu */
     }
     
-    .hero h1 {
-        font-size: 36px;
+    .header-image-container {
+        height: 200px; /* Shorter on mobile */
     }
     
-    .full-width-header img {
-        height: 200px; /* Make header image smaller on mobile */
+    .site-title {
+        font-size: 60px; /* Smaller text on mobile */
     }
     
-    .hero-content {
-        padding: 40px 20px; /* Less padding on mobile */
+    .hero .tagline {
+        font-size: 18px;
     }
-       
+    
+    .hero .description {
+        font-size: 16px;
+    }
+    
     .footer-content {
         flex-direction: column;
         gap: 30px;
