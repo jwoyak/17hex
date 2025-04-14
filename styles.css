@@ -82,6 +82,7 @@ header .container {
 .logo {
     font-size: 24px;
     font-weight: 700;
+    font-family: 'FirstV2', sans-serif;
     color: var(--accent-blue);
 }
 
@@ -146,7 +147,7 @@ nav ul li a:hover::after {
     font-family: 'FirstV2', sans-serif;
     font-size: 80px;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
     margin: 0;
     padding: 0;
 }
