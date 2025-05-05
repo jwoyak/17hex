@@ -53,7 +53,14 @@ function shareSigil() {
   var canvas = document.getElementById("canvas");
   var intent = document.getElementById("intent").value || "My Sigil";
   
-  // If we have full web share with file support (typically mobile devices)
+  // FIXED: Force desktop browsers to always use the custom share dialog
+  if (!platform.isMobile || platform.isWindows || platform.isMac || platform.isLinux) {
+    // Skip the Web Share API entirely on desktop - always use our custom dialog
+    showShareOptions();
+    return;
+  }
+  
+  // Continue with mobile sharing via Web Share API
   if (platform.hasFullWebShare) {
     canvas.toBlob(async function(blob) {
       try {
@@ -77,22 +84,8 @@ function shareSigil() {
         }
       }
     });
-  }
-  // If we only have basic web share (URLs only - typical on desktop Chrome)
-  else if (platform.hasBasicWebShare) {
-    // For desktop browsers with partial Web Share support,
-    // better to show the manual share dialog directly
-    showShareOptions();
-    
-    // Alternate approach: could try sharing just a URL if appropriate
-    // navigator.share({
-    //   title: "Sigil: " + intent,
-    //   text: "Check out this sigil I created",
-    //   url: window.location.href
-    // }).catch(() => showShareOptions());
-  }
-  // No Web Share support at all
-  else {
+  } else {
+    // Fall back to our custom share dialog
     showShareOptions();
   }
 }
@@ -489,81 +482,105 @@ function addExportUI() {
   // Create the main share button with appropriate text
   var mainShareButton = document.createElement('button');
   
-  // Use different button text based on platform capabilities
-  if (platform.hasFullWebShare) {
+  // Use different button text based on platform
+  if (platform.isMobile && platform.hasFullWebShare) {
     mainShareButton.textContent = 'Share Sigil';
   } else {
     mainShareButton.textContent = 'Share & Export';
   }
   
-  // Style the main button
+  // UPDATED: Style the main button with less distracting colors
+  // Use the same dark gray as the app background with a green border/accent
   mainShareButton.style.display = 'block';
   mainShareButton.style.width = '100%';
   mainShareButton.style.padding = platform.isMobile ? '15px' : '10px';
   mainShareButton.style.marginBottom = '10px';
-  mainShareButton.style.backgroundColor = '#4CAF50';
+  mainShareButton.style.backgroundColor = '#555'; // Darker gray, similar to app theme
   mainShareButton.style.color = 'white';
-  mainShareButton.style.border = 'none';
+  mainShareButton.style.border = '2px solid #4CAF50'; // Green border
   mainShareButton.style.borderRadius = '4px';
   mainShareButton.style.fontSize = platform.isMobile ? '18px' : '16px';
   mainShareButton.style.fontWeight = 'bold';
   mainShareButton.style.cursor = 'pointer';
+  mainShareButton.style.boxShadow = '0 1px 3px rgba(0,0,0,0.2)';
+  mainShareButton.style.position = 'relative';
+  
+  // Add a subtle green left border accent
+  var accentDiv = document.createElement('div');
+  accentDiv.style.position = 'absolute';
+  accentDiv.style.left = '0';
+  accentDiv.style.top = '0';
+  accentDiv.style.bottom = '0';
+  accentDiv.style.width = '5px';
+  accentDiv.style.backgroundColor = '#4CAF50';
+  accentDiv.style.borderTopLeftRadius = '2px';
+  accentDiv.style.borderBottomLeftRadius = '2px';
+  mainShareButton.appendChild(accentDiv);
+  
+  // Add hover effect
+  mainShareButton.onmouseover = function() {
+    this.style.backgroundColor = '#666';
+  };
+  mainShareButton.onmouseout = function() {
+    this.style.backgroundColor = '#555';
+  };
+  
   mainShareButton.onclick = shareSigil;
   
   exportContainer.appendChild(mainShareButton);
   
-  // Only show additional UI on desktop or if no full web share
-  if (!platform.hasFullWebShare || !platform.isMobile) {
-    // Export heading
-    var exportHeading = document.createElement('div');
-    exportHeading.innerHTML = '<strong>Download Options</strong>';
-    exportHeading.style.marginBottom = '10px';
-    exportContainer.appendChild(exportHeading);
+  // Always show download options (not just on desktop)
+  // since we want consistent UI and we're fixing the Windows issue
+  
+  // Export heading
+  var exportHeading = document.createElement('div');
+  exportHeading.innerHTML = '<strong>Download Options</strong>';
+  exportHeading.style.marginBottom = '10px';
+  exportContainer.appendChild(exportHeading);
+  
+  // Export buttons container
+  var buttonContainer = document.createElement('div');
+  buttonContainer.style.display = 'flex';
+  buttonContainer.style.flexWrap = 'wrap';
+  buttonContainer.style.gap = '5px';
+  exportContainer.appendChild(buttonContainer);
+  
+  // Export format buttons
+  var exportFormats = [
+    { format: 'png', label: 'PNG' },
+    { format: 'jpeg', label: 'JPEG' },
+    { format: 'svg', label: 'SVG' }
+  ];
+  
+  exportFormats.forEach(function(item) {
+    var btn = document.createElement('button');
+    btn.textContent = item.label;
+    btn.onclick = function() { exportSigil(item.format); };
+    buttonContainer.appendChild(btn);
+  });
+  
+  // Add copy button
+  var copyBtn = document.createElement('button');
+  copyBtn.textContent = 'Copy';
+  copyBtn.onclick = copyToClipboard;
+  buttonContainer.appendChild(copyBtn);
+  
+  // Only show embed button on desktop
+  if (!platform.isMobile) {
+    // Embed button
+    var embedContainer = document.createElement('div');
+    embedContainer.style.marginTop = '10px';
+    exportContainer.appendChild(embedContainer);
     
-    // Export buttons container
-    var buttonContainer = document.createElement('div');
-    buttonContainer.style.display = 'flex';
-    buttonContainer.style.flexWrap = 'wrap';
-    buttonContainer.style.gap = '5px';
-    exportContainer.appendChild(buttonContainer);
+    var embedHeading = document.createElement('div');
+    embedHeading.innerHTML = '<strong>Integration</strong>';
+    embedHeading.style.marginBottom = '5px';
+    embedContainer.appendChild(embedHeading);
     
-    // Export format buttons
-    var exportFormats = [
-      { format: 'png', label: 'PNG' },
-      { format: 'jpeg', label: 'JPEG' },
-      { format: 'svg', label: 'SVG' }
-    ];
-    
-    exportFormats.forEach(function(item) {
-      var btn = document.createElement('button');
-      btn.textContent = item.label;
-      btn.onclick = function() { exportSigil(item.format); };
-      buttonContainer.appendChild(btn);
-    });
-    
-    // Add copy button
-    var copyBtn = document.createElement('button');
-    copyBtn.textContent = 'Copy';
-    copyBtn.onclick = copyToClipboard;
-    buttonContainer.appendChild(copyBtn);
-    
-    // Only show embed button on desktop
-    if (!platform.isMobile) {
-      // Embed button
-      var embedContainer = document.createElement('div');
-      embedContainer.style.marginTop = '10px';
-      exportContainer.appendChild(embedContainer);
-      
-      var embedHeading = document.createElement('div');
-      embedHeading.innerHTML = '<strong>Integration</strong>';
-      embedHeading.style.marginBottom = '5px';
-      embedContainer.appendChild(embedHeading);
-      
-      var embedBtn = document.createElement('button');
-      embedBtn.textContent = 'Get Embed Code';
-      embedBtn.onclick = getEmbedCode;
-      embedContainer.appendChild(embedBtn);
-    }
+    var embedBtn = document.createElement('button');
+    embedBtn.textContent = 'Get Embed Code';
+    embedBtn.onclick = getEmbedCode;
+    embedContainer.appendChild(embedBtn);
   }
   
   // Add to page - insert before the footer
