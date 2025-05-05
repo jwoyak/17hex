@@ -3,6 +3,15 @@ SIGIL CREATOR by 17hex (web: http://17hex.com <> email: 17hex@protonmail.com)
 
 ChangeLog
 ---------
+[Version 2.2]
+Added export and share functionality to help users do more with their sigils:
+- Export to multiple image formats (PNG, JPEG, SVG)
+- Copy sigil directly to clipboard
+- Share options for popular note apps (Notion, Evernote, OneNote)
+- Email sharing option
+- Embed code generation for web integration
+- Improved filename generation based on sigil intent
+
 [Version 2.1]
 The old 17hex.com site was lost, but after hearing from people that they
 actually liked and used the sigil creator, I put in the work and was able
