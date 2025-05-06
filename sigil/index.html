@@ -7,6 +7,10 @@
   <script type="text/javascript" src="sigil-export.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="fonts/stylesheet.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#939393">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png">
 </head>
 
 <body bgcolor="#232323" >
@@ -89,5 +93,19 @@
 		</div>
 	</div>
 	</div>
+  <script>
+    // Check if service worker is supported
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          })
+          .catch(error => {
+            console.log('ServiceWorker registration failed: ', error);
+          });
+      });
+    }
+  </script>
 	</body>
 </html>
