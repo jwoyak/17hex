@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>17hex - Blog</title>
+    <title>Sigil sharing! - 17hex Blog</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,30 +16,6 @@
             padding: 40px 20px;
         }
         
-        .post-item {
-            margin-bottom: 60px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid var(--medium-gray);
-        }
-        
-        .post-title {
-            margin-bottom: 10px;
-        }
-        
-        .post-date {
-            display: block;
-            margin-bottom: 25px;
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-        
-        .permalink {
-            display: inline-block;
-            margin-top: 20px;
-            font-weight: 500;
-        }
-        
-        /* Styles for post content */
         .post-content h2 {
             margin-top: 40px;
             margin-bottom: 20px;
@@ -84,6 +60,18 @@
             overflow-x: auto;
             margin: 20px 0;
         }
+        
+        .post-title {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .post-date {
+            display: block;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -105,46 +93,20 @@
     
     <div class="section-dark">
         <div class="blog-container">
-            <h2>Blog</h2>
+            <h2 class="post-title">Sigil sharing!</h2>
+            <time class="post-date" datetime="2025-05-05">2025-05-05</time>
             
-            <div class="post-list">
-                
-                <article class="post-item">
-                    <h3 class="post-title">
-                        <a href="/blog/posts/sigil-sharing.html">Sigil sharing!</a>
-                    </h3>
-                    <time class="post-date" datetime="2025-05-05">2025-05-05</time>
-                    
-                    <!-- Full post content -->
-                    <div class="post-content">
-                        <p>As many of you who have found your way to my site will already know, the Sigil Creator app I made (back in 2015!) is one of the most widely viewed things I’ve ever put on the Internet. I just sort of had this idea (I have a lot of those) and made it as a way of learning HTML5 canvas, and it turned into a whole thing. People have used the sigils in art, in rituals, and even gotten tattoos of them! I love it!  </p>
+            <article class="post-content">
+                <p>As many of you who have found your way to my site will already know, the Sigil Creator app I made (back in 2015!) is one of the most widely viewed things I’ve ever put on the Internet. I just sort of had this idea (I have a lot of those) and made it as a way of learning HTML5 canvas, and it turned into a whole thing. People have used the sigils in art, in rituals, and even gotten tattoos of them! I love it!  </p>
 <p>One feature that I’ve wanted to add for a long time is the ability to export, copy, and share the images so you can save them, send them, add them to your notes app (aka digital grimoire), etc. Adding these kind of technicallly-complex-but-not-creative features is a great use of generative AI, so I used claude.ai to generate some share code, then worked through reimplementing it to support the Web Share API for mobile devices. This means your iPhone or Android phone will now shows its native Share dialog that lets you export the sigil to any app you have installed! Since Web Share isn’t implemented consistently on desktop, I had it “dumb down” to a static set of sharing options on desktop, but it’s still a LOT more than it could do before…</p>
 <p>The feature will still be a bit rough around the edges, so please let me know if you run into any issues or the sharing doesn’t work. Hopefully it makes the sigil creator nicer to use. Soon I’ll also handle things like theming (dark mode!) and a responsive UI (so it’s easier to use on mobile!) and even making the app a PWA so you can install it and use it offline! Stay tuned!</p>
 <p></p>
 <p></p>
 
-                    </div>
-                    
-                    <a href="/blog/posts/sigil-sharing.html" class="permalink">Permalink →</a>
-                </article>
-                
-                <article class="post-item">
-                    <h3 class="post-title">
-                        <a href="/blog/posts/17hex-is-back.html">17hex is back!</a>
-                    </h3>
-                    <time class="post-date" datetime="2025-04-06">2025-04-06</time>
-                    
-                    <!-- Full post content -->
-                    <div class="post-content">
-                        <p>After losing access to my web host and all the code a few year ago, I’ve managed to recover much of it. Now the site is hosted on Firebase, and the blog is hosted in Notion (though this may change, depending on the cost). Hopefully this lasts longer and fares better than the previous iteration! </p>
-<p>I also was finally able to put together a LOT of the music I’ve released online over the years, and even write up some of the history of it. Hopefully it’s at least interesting to someone. 🤷🏻‍♂️</p>
-<p></p>
-
-                    </div>
-                    
-                    <a href="/blog/posts/17hex-is-back.html" class="permalink">Permalink →</a>
-                </article>
-                
+            </article>
+            
+            <div style="margin-top: 60px;">
+                <a href="/blog" class="btn">← Back to Blog</a>
             </div>
         </div>
     </div>
@@ -161,7 +123,9 @@
                     <a href="/blog">Blog</a>
                 </div>
                 <div class="social-links">
-                    <a href="https://soundcloud.com/17hex" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+                    <a href="https://soundcloud.com/yourusername" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+                    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">Twitter</a>
                 </div>
             </div>
             <p class="copyright">&copy; 2025 17hex. All rights reserved.</p>
